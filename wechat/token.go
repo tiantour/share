@@ -38,7 +38,7 @@ func (t *Token) Access() (string, error) {
 	key := fmt.Sprintf("string:data:bind:access:token:%s", AppID)
 	var token string
 	err := cache.NewString().GET(&token, key)
-	if err != nil {
+	if err != nil || token == "" {
 		url := fmt.Sprintf("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
 			AppID,
 			AppSecret,
