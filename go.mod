@@ -1,4 +1,4 @@
-module github.com/tiantour/share/wechat
+module github.com/tiantour/share
 
 go 1.13
 
