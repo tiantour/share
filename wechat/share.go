@@ -73,22 +73,20 @@ func (s *Share) Ticket() (*Ticket, error) {
 	if err != nil {
 		return nil, err
 	}
-	url := fmt.Sprintf("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=jsapi",
-		token,
-	)
+	url := fmt.Sprintf("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=jsapi", token)
 	return s.do(url)
 }
 
 // do
 func (s *Share) do(url string) (*Ticket, error) {
-	result := Ticket{}
-	body, err := fetch.Cmd(fetch.Request{
+	body, err := fetch.Cmd(&fetch.Request{
 		Method: "GET",
 		URL:    url,
 	})
 	if err != nil {
 		return nil, err
 	}
+	result := Ticket{}
 	err = json.Unmarshal(body, &result)
 	if err != nil {
 		return nil, err
