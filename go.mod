@@ -13,5 +13,5 @@ require (
 require (
 	github.com/mediocregopher/radix/v4 v4.1.2 // indirect
 	github.com/tilinna/clock v1.0.2 // indirect
-	golang.org/x/crypto v0.6.0 // indirect
+	golang.org/x/crypto v0.17.0 // indirect
 )
